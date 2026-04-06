@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notícias Agora</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>🗞️ Notícias Agora</h1>
+      <p>App simples consumindo API pública de notícias.</p>
+    </header>
+
+    <main class="container">
+      <form id="search-form" class="search" autocomplete="off">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Buscar por palavra-chave (ex: NASA, Mars, SpaceX)"
+        />
+        <button type="submit">Buscar</button>
+      </form>
+
+      <div class="toolbar">
+        <button id="refresh-btn" type="button">Atualizar</button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </div>
+
+      <section id="news-list" class="news-grid"></section>
+    </main>
+
+    <template id="news-card-template">
+      <article class="news-card">
+        <img class="news-image" alt="Imagem da notícia" loading="lazy" />
+        <div class="news-content">
+          <h2 class="news-title"></h2>
+          <p class="news-summary"></p>
+          <div class="news-meta">
+            <span class="news-source"></span>
+            <time class="news-date"></time>
+          </div>
+          <a class="news-link" target="_blank" rel="noopener noreferrer">Ler notícia</a>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
