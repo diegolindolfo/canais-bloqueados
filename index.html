@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notícias do Dia</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>🗞️ Notícias do Dia</h1>
+      <p>Seu resumo rápido para ficar informado todos os dias.</p>
+    </header>
+
+    <main class="container">
+      <section class="filters" aria-label="Filtros de notícias">
+        <button class="category-btn active" data-category="hoje" type="button">Hoje</button>
+        <button class="category-btn" data-category="brasil" type="button">Brasil</button>
+        <button class="category-btn" data-category="mundo" type="button">Mundo</button>
+        <button class="category-btn" data-category="economia" type="button">Economia</button>
+        <button class="category-btn" data-category="tecnologia" type="button">Tecnologia</button>
+      </section>
+
+      <form id="search-form" class="search" autocomplete="off">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Buscar por palavra-chave (ex: inflação, eleição, IA)"
+        />
+        <button type="submit">Buscar</button>
+      </form>
+
+      <div class="toolbar">
+        <button id="refresh-btn" type="button">Atualizar</button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </div>
+
+      <section class="top-five" aria-labelledby="top-five-title">
+        <div class="section-header">
+          <h2 id="top-five-title">Top 5 do dia</h2>
+          <small>Resumo rápido</small>
+        </div>
+        <ol id="top-five-list"></ol>
+      </section>
+
+      <section class="section-header only-title" aria-labelledby="news-title">
+        <h2 id="news-title">Últimas atualizações</h2>
+      </section>
+
+      <section id="news-list" class="news-grid"></section>
+    </main>
+
+    <template id="news-card-template">
+      <article class="news-card">
+        <img class="news-image" alt="Imagem da notícia" loading="lazy" />
+        <div class="news-content">
+          <h3 class="news-title"></h3>
+          <p class="news-summary"></p>
+
+          <div class="news-meta">
+            <span class="news-source"></span>
+            <time class="news-date"></time>
+          </div>
+
+          <div class="news-actions">
+            <button class="btn-read" type="button">Marcar como lida</button>
+            <button class="btn-favorite" type="button">Salvar</button>
+          </div>
+
+          <a class="news-link" target="_blank" rel="noopener noreferrer">Ler notícia</a>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
